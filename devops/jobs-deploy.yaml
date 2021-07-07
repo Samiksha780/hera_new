@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: jobs
+  name: jobs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jobs
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: jobs
+    spec:
+      containers:
+      - image: samiksha18/jobs-hera:1.0
+        name: jobsc
+        env:
+        - name: DB_URL
+          value: "mongodb://mongo"
+        ports:
+        - containerPort: 3001
+        resources: {}
+status: {}
+
+
