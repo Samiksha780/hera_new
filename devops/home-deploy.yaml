@@ -18,7 +18,7 @@ spec:
         app: home
     spec:
       containers:
-      - image: samiksha18/home-hera:1.0
+      - image: samiksha18/home-hera:latest
         name: homec
         env:
         - name: DB_URL
