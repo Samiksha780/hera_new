@@ -20,12 +20,13 @@ spec:
       containers:
       - image: samiksha18/jobs-hera:latest
         name: jobsc
-        env:
-        - name: DB_URL
-          value: "mongodb://10.191.235.225:31003"
+        envFrom:
+          - configMapRef:
+              name: mycm
         ports:
         - containerPort: 3001
         resources: {}
 status: {}
+
 
 
