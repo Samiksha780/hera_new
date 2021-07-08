@@ -18,11 +18,11 @@ spec:
         app: jobs
     spec:
       containers:
-      - image: samiksha18/jobs-hera:1.0
+      - image: samiksha18/jobs-hera:latest
         name: jobsc
         env:
         - name: DB_URL
-          value: "mongodb://mongo"
+          value: "mongodb://10.191.235.225:31003"
         ports:
         - containerPort: 3001
         resources: {}
