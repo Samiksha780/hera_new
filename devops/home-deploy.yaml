@@ -22,7 +22,7 @@ spec:
         name: homec
         env:
         - name: DB_URL
-          value: "mongodb://mongo"
+          value: "mongodb://10.191.235.225:31003"
         ports:
         - containerPort: 3003
         resources: {}
