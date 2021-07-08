@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,14 +19,12 @@ spec:
         app: home
     spec:
       containers:
-      - image: samiksha18/home-hera:latest
-        name: homec
-        env:
-        - name: DB_URL
-          value: "mongodb://10.191.235.225:31003"
-        ports:
-        - containerPort: 3003
-        resources: {}
+        - image: "samiksha18/home-hera:latest"
+          name: homec
+          envFrom:
+          - configMapRef:
+              name: mycm
+          ports:
+          - containerPort: 3003
+          resources: {}
 status: {}
-
-
