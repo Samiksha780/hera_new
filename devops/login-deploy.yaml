@@ -20,12 +20,10 @@ spec:
       containers:
       - image: samiksha18/login-hera:latest
         name: loginc
-        env:
-        - name: DB_URL
-          value: "mongodb://10.191.235.225:31003"
+        envFrom:
+          - configMapRef:
+              name: mycm
         ports:
         - containerPort: 3000
         resources: {}
 status: {}
-
-
