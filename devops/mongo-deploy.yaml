@@ -20,5 +20,13 @@ spec:
       containers:
       - image: mongo
         name: mongo
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          value: "admin"
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          value: "password"
+        - name: DB_URL
+          value: "mongodb://admin:password@10.191.235.225:31003"
+
         resources: {}
 status: {}
