@@ -127,7 +127,7 @@ app.get("/jobs.html", function (req, res) {
   res.render("jobs.html");
 });
 app.get("/", function (req, res) {
-  res.render("home.html");
+  res.render("login.html");
 });
 
 app.get("/login.html", function (req, res) {
