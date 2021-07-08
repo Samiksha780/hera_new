@@ -18,11 +18,11 @@ spec:
         app: login
     spec:
       containers:
-      - image: samiksha18/login-hera:1.0
+      - image: samiksha18/login-hera:latest
         name: loginc
         env:
         - name: DB_URL
-          value: "mongodb://mongo"
+          value: "mongodb://10.191.235.225:31003"
         ports:
         - containerPort: 3000
         resources: {}
