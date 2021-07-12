@@ -17,18 +17,18 @@ spec:
       labels:
         app: login
     spec:
-      volumes:
-       - name: pv-storage
-         persistentVolumeClaim:
-          claimName: mypvc
+           # volumes:
+           # - name: pv-storage
+           # persistentVolumeClaim:
+           # claimName: mypvcss
       containers:
       - image: "samiksha18/login-hera:latest"
         name: loginc
-        volumeMounts:
-         - mountPath: "/var/lib/data"
-           name: pv-storage
+           # volumeMounts:
+           # - mountPath: "/var/lib/data"
+           # name: pv-storage
         envFrom:
-          - configMapRef:
+        - configMapRef:
               name: mycm
         ports:
         - containerPort: 3000

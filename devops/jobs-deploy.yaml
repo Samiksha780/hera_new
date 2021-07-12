@@ -17,16 +17,16 @@ spec:
       labels:
         app: jobs
     spec:
-      volumes:
-       - name: pv-storage
-         persistentVolumeClaim:
-          claimName: mypvc
+            # volumes:
+            # - name: pv-storage
+            # persistentVolumeClaim:
+            # claimName: mypvcss
       containers:
       - image: "samiksha18/jobs-hera:latest"
         name: jobsc
-        volumeMounts:
-         - mountPath: "/var/lib/data"
-           name: pv-storage
+           # volumeMounts:
+           # - mountPath: "/var/lib/data"
+           # name: pv-storage
         envFrom:
           - configMapRef:
               name: mycm

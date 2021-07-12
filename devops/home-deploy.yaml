@@ -18,16 +18,16 @@ spec:
       labels: 
         app: home
     spec:
-      volumes:
-       - name: pv-storage
-         persistentVolumeClaim:
-          claimName: mypvc
+         # volumes:
+         # - name: pv-storage
+         # persistentVolumeClaim:
+         # claimName: mypvcss
       containers: 
         - image: "samiksha18/home-hera:latest"
           name: homec
-          volumeMounts:
-           - mountPath: "/mnt"
-             name: pv-storage
+          # volumeMounts:
+          # - mountPath: "/mnt"
+          # name: pv-storage
           envFrom:
           - configMapRef:
               name: mycm

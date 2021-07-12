@@ -26,7 +26,7 @@ spec:
         name: mongo
         volumeMounts:
          - name: pv-storage
-           mountPath: /mnt
+           mountPath: /data/db
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           value: "admin"
