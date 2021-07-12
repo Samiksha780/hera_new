@@ -1,30 +1,38 @@
----
+--- 
 apiVersion: apps/v1
 kind: Deployment
-metadata:
+metadata: 
   creationTimestamp: null
-  labels:
+  labels: 
     app: home
   name: home
-spec:
+spec: 
   replicas: 1
-  selector:
-    matchLabels:
+  selector: 
+    matchLabels: 
       app: home
   strategy: {}
-  template:
-    metadata:
+  template: 
+    metadata: 
       creationTimestamp: null
-      labels:
+      labels: 
         app: home
     spec:
-      containers:
+      volumes:
+       - name: pv-storage
+         persistentVolumeClaim:
+          claimName: mypvc
+      containers: 
         - image: "samiksha18/home-hera:latest"
           name: homec
+          volumeMounts:
+           - mountPath: "/mnt"
+             name: pv-storage
           envFrom:
           - configMapRef:
               name: mycm
-          ports:
+          ports: 
           - containerPort: 3003
           resources: {}
 status: {}
+

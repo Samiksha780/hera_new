@@ -17,9 +17,16 @@ spec:
       labels:
         app: mongo
     spec:
+      volumes:
+       - name: pv-storage
+         persistentVolumeClaim:
+            claimName: mypvc
       containers:
       - image: mongo
         name: mongo
+        volumeMounts:
+         - name: pv-storage
+           mountPath: /mnt
         env:
         - name: MONGO_INITDB_ROOT_USERNAME
           value: "admin"
@@ -27,6 +34,5 @@ spec:
           value: "password"
         - name: DB_URL
           value: "mongodb://admin:password@10.191.235.225:31003"
-
         resources: {}
 status: {}

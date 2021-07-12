@@ -17,9 +17,16 @@ spec:
       labels:
         app: jobs
     spec:
+      volumes:
+       - name: pv-storage
+         persistentVolumeClaim:
+          claimName: mypvc
       containers:
-      - image: samiksha18/jobs-hera:latest
+      - image: "samiksha18/jobs-hera:latest"
         name: jobsc
+        volumeMounts:
+         - mountPath: "/var/lib/data"
+           name: pv-storage
         envFrom:
           - configMapRef:
               name: mycm
@@ -27,6 +34,5 @@ spec:
         - containerPort: 3001
         resources: {}
 status: {}
-
 
 
