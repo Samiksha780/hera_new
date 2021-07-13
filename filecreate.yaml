@@ -1,0 +1,11 @@
+---
+- hosts: kubernetes
+  tasks:
+  - name: Create File
+    file:
+      path: /home/ubuntu/testfile
+      state: touch
+  - name: Create Directory
+    file:
+      path: /home/ubuntu/testdir
+      state: directory
