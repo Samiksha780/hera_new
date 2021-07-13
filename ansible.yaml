@@ -30,5 +30,5 @@
      cd /home/ubuntu/hera_new;
      kubectl apply -f devops/; 
     debug:
-      msg: "files have been deployed";
+      msg: "files have been deployed"
 
