@@ -2,7 +2,12 @@
 - hosts: kubernetes
   tasks:
   - name: run all deployment yamls
-    shell:
+    shell: |
+     kubectl delete svc homecl homenp jobscl jobsnp logincl loginnp mongocl mongonp;
+     kubectl delete deploy home jobs login mongo;
+     kubectl delete pvc mypvc;
+     kubectl delete pv mypv;
+     kubectl delete sc pv-storage;
      cd /home/ubuntu/hera_new
      kubectl apply -f devops/ 
   - name: print message
