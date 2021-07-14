@@ -1,25 +1,6 @@
 ---
 - hosts: kubernetes
   tasks:
-  - name: build dockerfile and update on dockerhub
-    shell: |
-     cd hera_new/login-register;
-     docker build -t login:latest .;
-     docker tag login:latest samiksha18/login-hera:latest;
-     docker push samiksha18/login-hera:latest;
-     docker rmi login:latest samiksha18/login-hera:latest samiksha18/login-hera:latest;
-
-     cd Hera_latest/jobsapplied;
-     docker build -t jobs:latest .;
-     docker tag jobs:latest samiksha18/jobs-hera:latest;
-     docker push samiksha18/jobs-hera:latest;
-     docker rmi jobs:latest samiksha18/jobs-hera:latest samiksha18/jobs-hera:latest;
-
-     cd Hera_latest/Home_Page;
-     docker build -t home:latest .;
-     docker tag home:latest samiksha18/home-hera:latest;
-     docker push samiksha18/home-hera:latest;
-     docker rmi home:latest samiksha18/home-hera:latest samiksha18/home-hera:latest;
   - name: run all deployment yamls
     shell: |
      kubectl delete svc homecl homenp jobscl jobsnp logincl loginnp mongocl mongonp;
@@ -28,7 +9,10 @@
      kubectl delete pv mypv;
      kubectl delete sc pv-storage;
      cd /home/ubuntu/hera_new;
-     kubectl apply -f devops/; 
+     kubectl apply -f devops/;
+
+  - name: print message
     debug:
       msg: "files have been deployed"
+
 
