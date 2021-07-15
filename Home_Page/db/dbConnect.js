@@ -6,7 +6,7 @@ async function dbConnect() {
   // use mongoose to connect this app to our database on mongoDB using the DB_URL (connection string)
   mongoose
     .connect(
-        'mongodb://localhost:27017',
+        process.env.DB_URL,
       {
         //   these are options to ensure that the connection is done properly
         useNewUrlParser: true,
@@ -15,10 +15,10 @@ async function dbConnect() {
       }
     )
     .then(() => {
-      console.log("Successfully connected to MongoDB Atlas!");
+      console.log("Successfully connected to MongoDB!");
     })
     .catch((error) => {
-      console.log("Unable to connect to MongoDB Atlas!");
+      console.log("Unable to connect to MongoDB!");
       console.error(error);
     });
 }
